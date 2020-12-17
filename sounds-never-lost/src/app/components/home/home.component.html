@@ -1,3 +1,5 @@
 <div class="new-page app-home">
-    Hello, this page is still in progress.
+    <h1>Hello, this page is still in progress.</h1>
+    <button (click)="show=!show">YouTube</button>
+    <app-player-youtube *ngIf="show" videoID="rR3UoWBtGsk" (videoState)="log($event)"></app-player-youtube>
 </div>

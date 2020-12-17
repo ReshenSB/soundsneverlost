@@ -8,8 +8,7 @@ import { AboutModule } from './modules/about.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    
+    AppComponent
   ],
   imports: [
     BrowserModule,
