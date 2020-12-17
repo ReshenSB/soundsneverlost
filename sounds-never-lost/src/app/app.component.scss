@@ -1,0 +1,17 @@
+.app-root {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+
+    >.toolbar {
+        height: 38px;
+        background-color: lightseagreen;
+        padding: 8px;
+        >span {
+            line-height: 22px;
+            height: 22px;
+            padding: 0px 8px;
+            cursor: pointer;
+        }
+    }
+}
