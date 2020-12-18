@@ -52,7 +52,7 @@ export class PlayerYouTubeComponent implements AfterViewInit {
   onYouTubeIframeAPIReady(): void {
     this.player = new window.YT.Player('player', {
       events: {
-        'onReady': this.onPlayerReady,
+        'onReady': this.onPlayerReady.bind(this),
         'onStateChange': this.onPlayerStateChange.bind(this)
       }
     });
@@ -62,7 +62,8 @@ export class PlayerYouTubeComponent implements AfterViewInit {
    * Starts the video when the video is ready for playback.
    */
   onPlayerReady(event: any) {
-    event.target.playVideo();
+    this.play();
+    // event.target.playVideo();
   }
 
   /**

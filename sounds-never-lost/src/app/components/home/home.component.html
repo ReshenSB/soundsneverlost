@@ -1,5 +1,10 @@
 <div class="new-page app-home">
     <h1>Hello, this page is still in progress.</h1>
-    <button (click)="show=!show">YouTube</button>
-    <app-player-youtube *ngIf="show" videoID="rR3UoWBtGsk" (videoState)="log($event)"></app-player-youtube>
+    <button (click)="showYT=!showYT">YouTube</button>
+    <button (click)="showSC=!showSC">SoundCloud</button>
+    <app-player-youtube *ngIf="showYT" videoID="rR3UoWBtGsk" (videoState)="log($event)"></app-player-youtube>
+    
+    <app-player-soundcloud *ngIf="showSC" soundID="276282465"></app-player-soundcloud>
+
+    <app-player-controls></app-player-controls>
 </div>
