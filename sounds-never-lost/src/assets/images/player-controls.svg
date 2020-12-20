@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="80" viewBox="0 0 320 80" width="320" fill="black">
+    <path d="M0 0h2400000v240000H0z" fill="ghostwhite" />
+    <!-- <path d="M2 55 V25 L25 2 H290 L318 25 V55 L290 78 H30 z  -->
+    <path d="
+    M 40, 2
+    a 38,38 0 0,0 0,76
+    h240
+    a 38,38 0 0,0 0,-76
+    Z
+  " 
+    fill="none" stroke="black" stroke-width="4" />
+    <!-- <path d="M9 35 l 31 -29 l 240 0 l 31 29 l -31 29 l -238 0 z" fill="none" stroke="red" stroke-width="1" /> -->
+    <!-- <path d="M14 35 l 27 -25 l 238 0 l 26 25 l -26 25 l -236 0 z" fill="none" stroke="blue" stroke-width="2" /> -->
+    
+    
+    
+    
+    
+    <!-- <path d="M0 0h24v24H0z" fill="none" /> -->
+
+<!-- <circle cx="264" cy="35" r="12" fill="#a0e273"/> -->
+<!-- <circle cx="291" cy="35" r="12" fill="#a0e273"/> -->
+
+    <!-- Play -->
+    <path d="M260 28 v14 l11-7 z" />
+    <!-- Pause -->
+    <path d="M258 28 h4v14h-4z m8 0 h4v14h-4z" />
+    <!-- Stop -->
+    <path d="M285 29h12v12h-12z" />
+</svg>

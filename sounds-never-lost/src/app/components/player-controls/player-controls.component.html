@@ -1,1 +1,19 @@
-<p>player-controls works!</p>
+<div class="app-player-controls">
+
+    <div class="float-right" style="width: 48px;height: 24px;">
+        <!-- Play / Pause -->
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"
+            (click)="showPause ? pause() : play()">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path *ngIf="!showPause" d="M8 5v14l11-7z" [style.fill]="disabled ? '#0000001f': '#000000'" />
+            <path *ngIf="showPause" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"
+                [style.fill]="disabled ? '#0000001f': '#000000'" />
+        </svg>
+
+        <!-- Stop -->
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" (click)="disabled=!disabled">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M6 6h12v12H6z" [style.fill]="disabled ? '#0000001f': '#000000'" />
+        </svg>
+    </div>
+</div>
