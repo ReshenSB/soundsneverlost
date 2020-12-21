@@ -42,6 +42,7 @@ const playlistSchema = new mongoose.Schema({
     "etag": String,
     "nextPageToken": String,
     "prevPageToken": String,
+    "playlistId":String,
     "pageInfo": {
         "totalResults": Number,
         "resultsPerPage": Number
