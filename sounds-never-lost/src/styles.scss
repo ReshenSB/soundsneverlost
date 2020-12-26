@@ -12,7 +12,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $sounds-never-lost-primary: mat-palette($mat-brown);
-$sounds-never-lost-accent: mat-palette($mat-deep-orange, A200, A100, A400);
+$sounds-never-lost-accent: mat-palette($mat-green, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $sounds-never-lost-warn: mat-palette($mat-red);
@@ -41,8 +41,8 @@ sans-serif;
 // Styles
 html body {
   margin: 0px;
-  --accent: #ff6e40;
-  --primary: #795548;
+  --primary: #5D4037;
+  --accent: #4CAF50;
   --warn: #f44336;
   --disabled: rgba(0, 0, 0, 0.26);
 

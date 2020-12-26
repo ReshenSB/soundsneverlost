@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-player-controls',
@@ -18,7 +17,7 @@ export class PlayerControlsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(environment)
+
   }
 
   disable() {

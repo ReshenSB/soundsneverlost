@@ -1,19 +1,17 @@
 <div class="app-player-controls" [style.--color]="disabled ? 'var(--disabled)' : active ? 'var(--accent)' :'var(--primary)'">
-    <img class="img-thumbnail" src="{{thumbnail}}">
+    <img class="img-thumbnail" [style.opacity]="disabled ? '0.26' : '1'" src="{{thumbnail}}">
     <div class="details">
         <div class="d-inline-block m-auto text-center w-100">
-            <!-- <mat-slide-toggle>Autoplay</mat-slide-toggle> -->
-            <!-- <mat-checkbox>Autoplay</mat-checkbox> -->
             <button mat-icon-button  (click)="control()" [color]="active ? 'primary' : 'primary'" [disabled]="disabled">
                 <mat-icon>{{playing ? 'pause_circle_outline' : 'play_circle_outline'}}</mat-icon>
             </button>
-            <button mat-icon-button (click)="stop()"  color="primary" [disabled]="disabled">
+            <button mat-icon-button (click)="stop()" color="primary" [disabled]="disabled">
                 <mat-icon>stop</mat-icon>
             </button>
-            <button mat-icon-button  (click)="disable()" color="primary" >
+            <button mat-icon-button  (click)="disable()" color="primary" [matTooltip]="disabled ? 'Add to autoplay' : 'Remove from autoplay'" matTooltipPosition="above">
                 <mat-icon>{{disabled ? 'playlist_add' : 'playlist_add_check'}}</mat-icon>
             </button>
         </div>
-        <p>{{name}}</p>
+        <p [style.opacity]="disabled ? '0.26' : '1'" [matTooltip]="name">{{name}}</p>
     </div>
 </div>
