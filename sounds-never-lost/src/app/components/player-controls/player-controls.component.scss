@@ -1,8 +1,48 @@
-.app-player-controls{
-    height: 26px;
-    border-color: lightseagreen;
+.app-player-controls {
+    // height: 26px;
+    --color:var(--primary);
+    position: relative;
+    border-color: var(--color);
     border-style: solid;
-    border-width: 1px;
+    border-width: 1px 15px;
+
+    background-color: #fff;
+    border-radius: 40px;
+    height: 80px;
+    width: 400px;
+
+    >div.checkbox {
+        position: absolute;
+        width: 40px;
+        height: 100%;
+    }
+
+    >img {
+        max-width: 100px;
+        // margin-left: 40px;
+        position: absolute;
+        left: 20px;
+        top:0px;
+        // width: 130px;
+        // height: 100px;
+    }
+
+    >div.details {
+        position: absolute;
+        left: 120px;
+        top: 0px;
+        width: calc(100% - 140px);
+        padding-left: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        height: 100%;
+
+        >p{
+            margin: 0px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    }
 
 }
 

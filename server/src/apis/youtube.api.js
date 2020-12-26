@@ -9,7 +9,7 @@ exports.youTubeSave = (req, res) => {
       res.send('Saved');
     })
     .catch(err => {
-      res.status(400).send("unable to save to database");
+      res.status(400).send('unable to save to database');
     });
 }
 
@@ -25,7 +25,6 @@ exports.getPlaylist = async (req, res) => {
     'pageToken': 'pageToken='
   }
   const API = `${APIBase}?${Params.part}&${Params.playlistId}&${Params.key}&${Params.maxResults}`
-  // res.send(API)
 
   try {
     let nextPageToken = ''
@@ -38,20 +37,32 @@ exports.getPlaylist = async (req, res) => {
       await myData.save()
       nextPageToken = myData.nextPageToken === undefined ? '' : '&pageToken=' + myData.nextPageToken;
     } while (nextPageToken !== '')
-    // let API = `${API}&${Params.pageToken}`
 
     res.send('Done');
   } catch (error) {
     console.log(error.response.body);
   }
+}
 
-  // got.get('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&part=contentDetails&part=id&part=status&playlistId=PLYjiM4siBjjxRah4AhbygLyfaU2mmVVhx&key=AIzaSyDd0tpHgGr0fehe1WfFfgmW5AJX_G8IZ8g&maxResults=5',
+exports.extractPlaylist = async (req, res) => {
+  try {
+    let ytList = []
+    const yt = await YouTube.find({ 'playlistId': req.params.playlistId }, ['items.snippet.title', 'items.contentDetails']);
+    // res.send(yt);
+    for (let video of yt) {
+      ytList = ytList.concat(
+        video.items.map((item) => (
+          {
+            'title': item.snippet.title,
+            'videoId': item.contentDetails.videoId,
+            'videoPublishedAt': item.contentDetails.videoPublishedAt
+          }
+        )))
+    }
 
-  //   (resp) => {
-  //     res.send(resp);
 
-  //   }).catch((err) => {
-  //     console.log("Error: " + err.message);
-  //     res.send("Error: " + err.message)
-  //   });
+    res.send(ytList);
+  } catch (error) {
+    console.log(error.response.body);
+  }
 }

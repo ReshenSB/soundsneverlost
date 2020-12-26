@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-player-controls',
@@ -6,34 +7,44 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./player-controls.component.scss']
 })
 export class PlayerControlsComponent implements OnInit {
+  @Input() name = 'Thousand Foot Krutch - Lifeline (Lyric Video)';
+  @Input() thumbnail = 'https://i.ytimg.com/vi/-HXUyEWP1DE/default.jpg'
+  @Input() source = 'YouTube'
+  @Input() playing = false;
+  @Input() active = false;
+  @Input() disabled = false;
 
-
-  showPause = false;
-
-  playPath= '"M8 5v14l11-7z"'
-  pausePath= '"M6 19h4V5H6v14zm8-14v14h4V5h-4z"'
-  active='"M8 5v14l11-7z"'
-
-  disabled = false;
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(environment)
   }
 
-  pause(){
-    this.showPause=!this.showPause;
+  disable() {
+    this.disabled = !this.disabled
+    // if (this.disabled) this.play()
+    // else this.pause()
+  }
+
+  control() {
+    if (this.playing) this.play()
+    else this.pause()
+  }
+
+  pause() {
+    this.playing = !this.playing;
     // this.active=(this.showPause ? this.pausePath : this.playPath )
   }
-  
-  play(){
-    this.showPause=!this.showPause;
+
+  play() {
+    this.playing = !this.playing;
     // this.active=(this.showPause ? this.pausePath : this.playPath )
   }
 
 
-  stop(){
-    this.showPause=!this.showPause;
+  stop() {
+    this.active = !this.active;
     // this.active=(this.showPause ? this.pausePath : this.playPath )
   }
 

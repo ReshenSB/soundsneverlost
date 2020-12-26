@@ -1,7 +1,36 @@
 <div class="app-root">
-    <div class="toolbar">
-        <span routerLink="/">Home</span>
-        <span routerLink="/about">About</span>
-    </div>
-    <router-outlet></router-outlet>
+    <mat-toolbar #toolbar>
+        <button mat-icon-button aria-label="Open menu" (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>{{title}}</span>
+    </mat-toolbar>
+    <mat-drawer-container [style.height]="'calc(100vh - '+toolbar._elementRef.nativeElement.offsetHeight+'px)'">
+        <mat-drawer #drawer mode="side" [opened]="true">
+            <ng-container *ngIf="profile">
+                <img src="{{ profile.ImageURL }}">
+                <div class="pl-3 pr-3 text-center">
+                    <p><b>{{ profile.FullName }}</b></p>
+                    <p>{{ profile.Email }}</p>
+                </div>
+            </ng-container>
+            <button mat-flat-button (click)="SignIn()" *ngIf="!profile">
+                <mat-icon>login</mat-icon>
+                Sign In
+            </button>
+            <button mat-flat-button routerLink="/" routerLinkActive="active-link"  [routerLinkActiveOptions]="{exact: true}">
+                <mat-icon>home</mat-icon>
+                Home
+            </button>
+            <button mat-flat-button routerLink="/about" routerLinkActive="active-link">
+                <mat-icon>info</mat-icon>
+                About
+            </button>
+            <button mat-flat-button (click)="SignOut()"  *ngIf="profile" disabled>
+                <mat-icon>login</mat-icon>
+                Sign Out
+            </button>
+        </mat-drawer>
+        <router-outlet></router-outlet>
+    </mat-drawer-container>
 </div>
